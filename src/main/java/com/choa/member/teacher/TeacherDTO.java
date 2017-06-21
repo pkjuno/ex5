@@ -5,9 +5,11 @@ import java.sql.Date;
 import com.choa.member.MemberDTO;
 
 public class TeacherDTO extends MemberDTO{
+	
 	private String tid;
 	private String subject;
 	private Date hiredate;
+	
 	public String getTid() {
 		return tid;
 	}

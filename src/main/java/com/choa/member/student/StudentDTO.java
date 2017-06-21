@@ -2,10 +2,13 @@ package com.choa.member.student;
 
 import com.choa.member.MemberDTO;
 
+
 public class StudentDTO extends MemberDTO{
+	
 	private String sid;
+	private String phone;
 	private String tid;
-	private Stirng phone;
+	
 	public String getSid() {
 		return sid;
 	}
@@ -18,10 +21,10 @@ public class StudentDTO extends MemberDTO{
 	public void setTid(String tid) {
 		this.tid = tid;
 	}
-	public Stirng getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(Stirng phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 }
