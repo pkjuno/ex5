@@ -7,7 +7,17 @@
 	
 	<!--회원가입 쿼리문    Student 테이블-->
 	<insert id="joinStudent" parameterType="com.choa.member.student.StudentDTO">
-		insert into student values(#{sid}, #{phone}, #{tid})
-	</insert>	
+		insert into student values(#{id}, #{phone}, #{tid})
+	</insert>
+	
+	<!-- 로그인  -->
+	<select id="memberLogin" parameterType="com.choa.member.MemberDTO" resultType="com.choa.member.student.StudentDTO">
+		select M.*, S.* from member M, student S where M.id = S.sid and M.id = #{id} and M.pw = #{pw}
+	</select>	
+	
+	<!-- 마이페이지  -->
+	<select id="memberPage" parameterType="java.lang.String" resultType="com.choa.member.student.StudentDTO">
+		select * from student where sid = #{id}
+	</select>
 	
 </mapper>

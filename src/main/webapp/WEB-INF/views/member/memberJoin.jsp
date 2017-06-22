@@ -49,14 +49,13 @@
 			<p>NAME : <input type="text"  name="name"></p>
 			<p>AGE : <input type="text" name="age"></p>
 			<p>FILE : <input type="file" name="f1"></p>
-			
 		</div>
 		<br>
 		<br>
 		<br>
 		<!--학생전용  -->
 		<div id="stuForm">
-			<p>SID : <input type="text" name="sid"></p>	
+			
 			<p>PHONE : <input type="text" name="phone"></p>
 			<p>TID : <input type="text" name="tid"></p>
 		</div>
@@ -65,7 +64,7 @@
 		<br>
 		<!--선생전용  -->
 		<div id="teaForm">
-			<p>TID : <input type="text" name="tid"></p>
+			
 			<p>SUBJECT : <input type="text" name="subject"></p>
 			<p>HIREDATE : <input type="date" name="hiredate"></p>
 		</div>

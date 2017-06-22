@@ -1,9 +1,5 @@
 package com.choa.ex5;
 
-
-
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -19,11 +15,13 @@ public class FileUploadController {
 	
 	@RequestMapping("/test/fileUpForm")
 	public void fileUp(){}
+	//파일 업로드 3가지 방법
 	
-	//첫번쨰 방법
+	//첫번쨰 방법( 멀티파티 리퀘스트로 받아주는 방법 )
 	//@RequestMapping(value="/test/fileUp1", method=RequestMethod.POST)
 	public void fileUpload1(String name, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception{
 		System.out.println("NAME : "+ name);
+		
 		//파라미터 이름을 알고 있어야 파일을 꺼내서 확인 할 수 있다.
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("f1");
 		System.out.println("겟네임 "+multipartFile.getName());
@@ -48,17 +46,15 @@ public class FileUploadController {
 	}
 	
 	
-	//3  DTO를 이용한 방법
+	//3  DTO(Bean)를 이용한 방법
 	@RequestMapping(value="/test/fileUp1", method=RequestMethod.POST)
 	public void fileUpload3(FileDTO fileDTO, HttpSession session) throws Exception{
 		FileSaver fileSaver = new FileSaver();
+
 		//파일이 저장되는 실제 경로
 		String realPath = session.getServletContext().getRealPath("resources/upload");
-		String oriName = fileDTO.getF1().getOriginalFilename();
-		byte [] fileData = fileDTO.getF1().getBytes();
 		
-		fileSaver.fileSave(realPath, fileData, oriName);
-		
+		fileSaver.fileSave(realPath, fileDTO.getF1());
 		
 		
 	}

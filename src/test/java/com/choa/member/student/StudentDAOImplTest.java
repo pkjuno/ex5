@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.choa.ex5.MyAbstarctTestUnit;
+import com.choa.member.MemberDTO;
 
 public class StudentDAOImplTest extends MyAbstarctTestUnit{
 	
@@ -17,14 +18,14 @@ public class StudentDAOImplTest extends MyAbstarctTestUnit{
 	
 	@Test
 	public void test() throws Exception {
-		int result = studentDAOImpl.memberJoin(studentDTO);
-		assertEquals(1, result);
+		StudentDTO memberDTO = (StudentDTO)studentDAOImpl.test(studentDTO);
+		System.out.println(memberDTO.getPhone());
+		System.out.println(memberDTO.getName());
 	}
 	
 	@BeforeClass
 	public static void makeStudnet(){
 		studentDTO = new StudentDTO();
-		
 		studentDTO.setId("junojuno1");
 		studentDTO.setPw("junojuno1");
 		studentDTO.setName("qkrwnsgh1");
@@ -32,7 +33,6 @@ public class StudentDAOImplTest extends MyAbstarctTestUnit{
 		studentDTO.setGrade("S");
 		studentDTO.setFilename("FJFJFJF5J");
 		studentDTO.setOriname("DFJKSDFJL5KSJDFL");
-		studentDTO.setSid("junojuno1");
 		studentDTO.setPhone("10101011");
 		studentDTO.setTid("bomibomi1");
 	}
